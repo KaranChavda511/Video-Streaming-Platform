@@ -1,11 +1,12 @@
 // dotenv ko config karvaya he.
 // require('dotenv').config({path:'./env'}) // ye to commonjs ka syntax aa gaya he but hame to moduleJs use kar rahe he (run to hoga ,but hame aur improved code version chahiye)
 import dotenv from "dotenv" // ye import kiya he , config niche karvayge
-import connectDB from "./db/index.js" //yaha extension imp he.
 dotenv.config({
     path:'./env'
 })
 
+// DB function ko bhi import karvana padega
+import connectDB from "./db/index.js" //yaha extension imp he.
 // DB connection function call.
 connectDB();
 
@@ -16,11 +17,6 @@ import { DB_NAME } from "./constants";
 // EXPRESS APP
 import express from "express";
 const app = express()
-*/
-
-
-
-/** 
 // DB CONNECTION (APPPROACH #1: DIRECTLY IN INDEX.JS)
 ;(async () => {
     try {
