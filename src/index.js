@@ -7,32 +7,19 @@ dotenv.config({
 
 // DB function ko bhi import karvana padega
 import connectDB from "./db/index.js" //yaha extension imp he.
-// DB connection function call.
-connectDB();
 
-/** 
-// DB CONNECTION (APPPROACH #1: DIRECTLY IN INDEX.JS)
-import mongoose from "mongoose";
-import { DB_NAME } from "./constants";
-// EXPRESS APP
-import express from "express";
-const app = express()
-// DB CONNECTION (APPPROACH #1: DIRECTLY IN INDEX.JS)
-;(async () => {
-    try {
-        await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
-        // EXPRESS APP: Setting up Express error handling
-        app.on("error",(error)=>{
-            console.log("ERROR",error);
-            throw error
-        })
-            // EXPRESS APP: Starting the Express server
-        app.listen(process.env.PORT,() => {
-            console.log(`APP IS LISTENING ON PORT ${process.env.PORT}`);
-        })
-    } catch (error) {
-        console.error("ERROR:",error)
+
+// DB connection function call.
+connectDB()
+.then(() => {
+    app.on("error",(error)=>{
+        console.log("ERROR",error);
         throw error
-    }
-})()
-*/
+    })
+    app.listen(process.env.PORT || 5000, ()=>{
+        console.log(`Server is running at port: ${process.env.PORT}`);  
+    })
+}).catch((err) => {
+    console.log("Mongodb connection failed",err);
+    
+});
