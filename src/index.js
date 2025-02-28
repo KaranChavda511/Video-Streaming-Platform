@@ -1,3 +1,5 @@
+import {app} from "./app.js"  // iske bina ham app. ka use nahi kar payge
+
 // dotenv ko config karvaya he.
 // require('dotenv').config({path:'./env'}) // ye to commonjs ka syntax aa gaya he but hame to moduleJs use kar rahe he (run to hoga ,but hame aur improved code version chahiye)
 import dotenv from "dotenv" // ye import kiya he , config niche karvayge
