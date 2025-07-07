@@ -4,7 +4,7 @@ import { DB_NAME } from "../constants.js"; // js ka extension imp he
 
 
 
-//  DB CONNECTION KE LIYE EK FUNCTION BANA DETE HE.
+//  DB CONNECTION KE LIYE EK FUNCTION BANA DETE HE.(do tarike hote he ek async..await or normal fun)
 const connectDB = async() => {
     try {
         const connectionInstance = await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
@@ -17,5 +17,6 @@ const connectDB = async() => {
         
     }
 }
+
 //  DB CONNECTION KE FUNCTION ko export karvate he.
 export default connectDB;

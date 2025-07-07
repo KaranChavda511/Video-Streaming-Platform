@@ -9,7 +9,7 @@ dotenv.config(); // environment variables load
 import connectDB from "./db/index.js" //yaha extension imp he.
 
 
-// DB connection function call.
+// DB connection function call. (yaha pe hamne .then.catch rakaha he kyoki hamne db connection ke liye async fu banaya he jab async fu call hota he ek promise bhi return karta he usey handle karne ke liye)  
 connectDB()
 .then(() => {
     app.on("error",(error)=>{
